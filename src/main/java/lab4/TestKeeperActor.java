@@ -17,8 +17,8 @@ public class TestKeeperActor extends AbstractActor {
                     if (tests.containsKey(mail.getPackageID())) {
                         tests.get(mail.getPackageID()).add(mail);
                     } else {
-                        ArrayList<String> arrayList = new ArrayList<>();
-                        arrayList.add(mail.getRes());
+                        ArrayList<TestUnit> arrayList = new ArrayList<>();
+                        arrayList.add(mail);
                         tests.put(mail.getPackageID(), arrayList);
                     }
                 })
