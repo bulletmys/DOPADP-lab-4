@@ -13,6 +13,7 @@ public class RouterActor extends AbstractActor {
         class Test {
             String testname;
             String expectedRes;
+            String params;
             
         }
     }
