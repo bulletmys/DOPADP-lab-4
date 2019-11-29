@@ -25,9 +25,9 @@ public class TestKeeperActor extends AbstractActor {
                 .match(GetTestsResult.class, mail -> {
                     if (tests.containsKey(mail.getPackageID())) {
                         TestsRes testsRes = new TestsRes(mail.getPackageID(), tests.get(mail.getPackageID()));
-                        sender().tell(testsRes, );
+                        sender().tell(testsRes, self());
                     } else {
-
+                        sender().tell("Error", self());
                     }
                 })
                 .build();
