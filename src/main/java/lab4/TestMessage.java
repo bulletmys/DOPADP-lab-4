@@ -7,4 +7,6 @@ public class TestMessage {
     String script;
     String funcName;
     ArrayList<TestUnit> tests;
+
+    TestMessage(int packageID, String script, String funcName)
 }
