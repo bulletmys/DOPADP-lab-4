@@ -12,8 +12,8 @@ public class Main {
         ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
 
         Http http = Http.get(system);
-
-        ActorMaterializer actorMaterializer =  
+        ActorMaterializer actorMaterializer =  ActorMaterializer.create(system);
+        
 
         return 0;
     }
