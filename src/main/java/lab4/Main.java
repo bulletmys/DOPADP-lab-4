@@ -4,6 +4,7 @@ package lab4;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.Http;
+import akka.stream.ActorMaterializer;
 
 public class Main {
     int main(String[] args) {
@@ -11,7 +12,8 @@ public class Main {
         ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
 
         Http http = Http.get(system);
-        
+
+        ActorMaterializer 
 
         return 0;
     }
