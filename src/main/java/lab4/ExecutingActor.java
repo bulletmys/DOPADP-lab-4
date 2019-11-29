@@ -10,5 +10,7 @@ public class ExecutingActor extends AbstractActor {
         return null;
     }
 
-    public static Props props
+    public static Props props() {
+        
+    }
 }
