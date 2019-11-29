@@ -18,6 +18,8 @@ public class ExecutingActor extends AbstractActor {
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
                     String string = invocable.invokeFunction(mail.funcName, mail.getTests()).toString();
+
+                    getContext().actorSelection("/us")
                 }).build();
     }
 
