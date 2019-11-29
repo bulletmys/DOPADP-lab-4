@@ -7,7 +7,7 @@ import akka.routing.RoundRobinPool;
 
 public class RouterActor extends AbstractActor {
 
-    private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props());
+    private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props(), "testKeeper");
     private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(1).props(ExecutingActor.props()));
 
 
