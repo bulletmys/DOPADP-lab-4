@@ -6,5 +6,5 @@ public class TestMessage {
     int packageID;
     String script;
     String funcName;
-    ArrayList<>
+    ArrayList<String> tests;
 }
