@@ -11,6 +11,7 @@ public class RouterActor extends AbstractActor {
 
     class TestsResults {
         class Test {
+            String testname;
             
         }
     }
