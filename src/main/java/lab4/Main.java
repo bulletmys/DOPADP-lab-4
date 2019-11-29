@@ -2,7 +2,7 @@ package lab4;
 
 
 public class Main {
-    int main() {
+    int main(String[] args) {
         
     }
 }
