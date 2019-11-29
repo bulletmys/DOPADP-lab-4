@@ -2,6 +2,7 @@ package lab4;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.routing.RoundRobinPool;
 
 public class RouterActor extends AbstractActor {
@@ -16,5 +17,9 @@ public class RouterActor extends AbstractActor {
                 .match(GetTestsResult.class, mail -> {
                     testKeeperActor.tell(mail, sender());
                 }).build();
+    }
+
+    public static Props props() {
+        return Props.create(TestKeeperActor.class);
     }
 }
