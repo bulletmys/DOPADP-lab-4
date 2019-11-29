@@ -10,7 +10,8 @@ public class Main {
         ActorSystem system = ActorSystem.create("test-system");
         ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
 
-        Http http = 
+        Http http = Http.get(system);
+        
 
         return 0;
     }
