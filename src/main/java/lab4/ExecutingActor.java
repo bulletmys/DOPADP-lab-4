@@ -7,7 +7,8 @@ public class ExecutingActor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return null;
+        return receiveBuilder()
+                .match()
     }
 
     public static Props props() {
