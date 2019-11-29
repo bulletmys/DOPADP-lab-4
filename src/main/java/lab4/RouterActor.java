@@ -16,7 +16,11 @@ public class RouterActor extends AbstractActor {
         return receiveBuilder()
                 .match(GetTestsResult.class, mail -> {
                     testKeeperActor.tell(mail, sender());
-                }).build();
+                })
+                .match(TestMessage.class, mail -> {
+                    
+                })
+                .build();
     }
 
     public static Props props() {
