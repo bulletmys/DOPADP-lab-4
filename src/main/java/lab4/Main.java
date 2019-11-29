@@ -13,7 +13,7 @@ public class Main {
 
         Http http = Http.get(system);
 
-        ActorMaterializer 
+        ActorMaterializer actorMaterializer =  
 
         return 0;
     }
