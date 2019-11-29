@@ -10,7 +10,7 @@ public class RouterActor extends AbstractActor {
     private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(1).props(ExecutingActor.props()));
 
     class TestsResult {
-
+        
     }
 
     @Override
