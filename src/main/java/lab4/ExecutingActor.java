@@ -18,14 +18,15 @@ public class ExecutingActor extends AbstractActor {
                             ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
-                    String string = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
+                    String result = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
 
                     getContext().actorSelection("/user/routeActor/testKeeper").tell(
                             new TestUnit(
                                     test.getTestName(),
                                     test.getExpectedRes(),
                                     test.getParams(),
-                                    test.getPackageID()),
+                                    test.getPackageID(),
+                                    result),
                             self());
                 }).build();
     }

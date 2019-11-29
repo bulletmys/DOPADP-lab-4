@@ -15,6 +15,18 @@ public class TestUnit {
         this.packageID = packageID;
     }
 
+    TestUnit(String testName, String expectedRes, String params, int packageID, String res) {
+        this.testName = testName;
+        this.expectedRes = expectedRes;
+        this.params = params;
+        this.res = res;
+        this.packageID = packageID;
+    }
+
+    public void setRes(String res) {
+        this.res = res;
+    }
+
     public String getExpectedRes() {
         return expectedRes;
     }
