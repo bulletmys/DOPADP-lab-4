@@ -14,7 +14,7 @@ public class TestKeeperActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(TestUnit.class, mail -> {
-                    if (tests.containsKey(mail.getPackageID(), )) {
+                    if (tests.containsKey(mail.getPackageID(), "testKeeper")) {
                         tests.get(mail.getPackageID()).add(mail);
                     } else {
                         ArrayList<TestUnit> arrayList = new ArrayList<>();
