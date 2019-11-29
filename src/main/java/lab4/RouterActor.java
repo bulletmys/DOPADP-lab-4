@@ -20,6 +20,6 @@ public class RouterActor extends AbstractActor {
     }
 
     public static Props props() {
-        return Props.create(TestKeeperActor.class);
+        return Props.create(RouterActor.class);
     }
 }
