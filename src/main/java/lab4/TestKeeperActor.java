@@ -3,7 +3,12 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.actor.Props;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class TestKeeperActor extends AbstractActor {
+
+    HashMap<Integer, ArrayList<String>> tests;
 
     @Override
     public Receive createReceive() {
