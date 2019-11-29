@@ -8,14 +8,14 @@ import java.util.HashMap;
 
 public class TestKeeperActor extends AbstractActor {
 
-    HashMap<Integer, ArrayList<String>> tests;
+    HashMap<Integer, ArrayList<TestUnit>> tests;
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
                 .match(TestUnit.class, mail -> {
                     if (tests.containsKey(mail.getPackageID())) {
-                        tests.get(mail.getPackageID()).add(mail.getRes());
+                        tests.get(mail.getPackageID()).add(mail);
                     } else {
                         ArrayList<String> arrayList = new ArrayList<>();
                         arrayList.add(mail.getRes());
