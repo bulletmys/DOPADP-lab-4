@@ -8,8 +8,8 @@ public class ExecutingActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TestMessage.class, m -> {
-
+                .match(TestMessage.class, mail -> {
+                    
                 })
     }
 
