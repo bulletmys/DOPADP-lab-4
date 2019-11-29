@@ -8,5 +8,7 @@ public class TestMessage {
     String funcName;
     ArrayList<TestUnit> tests;
 
-    TestMessage(int packageID, String script, String funcName)
+    TestMessage(int packageID, String script, String funcName) {
+        
+    }
 }
