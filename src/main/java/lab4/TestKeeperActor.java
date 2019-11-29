@@ -17,9 +17,13 @@ public class TestKeeperActor extends AbstractActor {
                     if (tests.containsKey(mail.getPackageID())) {
                         tests.get(mail.getPackageID()).add(mail.getRes());
                     } else {
-                        tests.put(mail.getPackageID(), new ArrayList<String>(mail.getRes()));
+                        ArrayList<String> arrayList = new ArrayList<>();
+                        arrayList.add(mail.getRes());
+                        tests.put(mail.getPackageID(), arrayList);
                     }
-                }).build();
+                })
+                .match()
+                .build();
     }
 
     public static Props props() {
