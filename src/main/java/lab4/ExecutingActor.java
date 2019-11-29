@@ -1,6 +1,7 @@
 package lab4;
 
 import akka.actor.AbstractActor;
+import akka.actor.Props;
 
 public class ExecutingActor extends AbstractActor {
 
@@ -9,5 +10,5 @@ public class ExecutingActor extends AbstractActor {
         return null;
     }
 
-    public
+    public static Props props
 }
