@@ -8,7 +8,9 @@ public class ExecutingActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match()
+                .match(TestMessage.class, m -> {
+
+                })
     }
 
     public static Props props() {
