@@ -19,7 +19,7 @@ public class RouterActor extends AbstractActor {
                 })
                 .match(TestMessage.class, mail -> {
                     for (TestUnit test : mail.getTests()) {
-                        execActorsPool.tell(new SepTestMessage(mail.packageID, mail.script, mail.funcName, test), );
+                        execActorsPool.tell(new SepTestMessage(mail.packageID, mail.script, mail.funcName, test), self());
                     }
                 })
                 .build();
