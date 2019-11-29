@@ -9,7 +9,9 @@ public class RouterActor extends AbstractActor {
     private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props());
     private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(1).props(ExecutingActor.props()));
 
-    class 
+    class TestsResult {
+        
+    }
 
     @Override
     public Receive createReceive() {
