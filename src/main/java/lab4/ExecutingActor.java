@@ -12,14 +12,21 @@ public class ExecutingActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TestMessage.class, mail -> {
+                .match(SepTestMessage.class, mail -> {
+                    TestUnit test = mail.getTest();
                     ScriptEngine engine = new
                             ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
-                    String string = invocable.invokeFunction(mail.funcName, mail.getTests()).toString();
+                    String string = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
 
-                    getContext().actorSelection("/user/routeActor/testKeeper").tell(new TestUnit());
+                    getContext().actorSelection("/user/routeActor/testKeeper").tell(
+                            new TestUnit(
+                                    test.getTestName(),
+                                    test.getExpectedRes(),
+                                    test.getParams(),
+                                    test.getPackageID()),
+                            self());
                 }).build();
     }
 
