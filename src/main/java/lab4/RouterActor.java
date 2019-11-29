@@ -18,7 +18,9 @@ public class RouterActor extends AbstractActor {
                     testKeeperActor.tell(mail, sender());
                 })
                 .match(TestMessage.class, mail -> {
-
+                    for (TestUnit test : mail.getTests()) {
+                        
+                    }
                 })
                 .build();
     }
