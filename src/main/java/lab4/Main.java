@@ -5,6 +5,7 @@ import akka.actor.ActorSystem;
 
 public class Main {
     int main(String[] args) {
-        ActorSystem system = ActorSystem.create("")
+        ActorSystem system = ActorSystem.create("test-system");
+        
     }
 }
