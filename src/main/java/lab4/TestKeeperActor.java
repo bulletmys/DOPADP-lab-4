@@ -13,7 +13,13 @@ public class TestKeeperActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match();
+                .match(TestUnit.class, mail -> {
+                    if (tests.containsKey(mail.getPackageID())) {
+                        tests.get(mail.getPackageID()).add(mail.getRes());
+                    } else {
+                        tests.put(mail.getPackageID(), new ArrayList<String>(mail.getRes()));
+                    }
+                }).build();
     }
 
     public static Props props() {

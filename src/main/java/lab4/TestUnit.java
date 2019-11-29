@@ -5,12 +5,14 @@ public class TestUnit {
     private String expectedRes;
     private String params;
     private String res;
+    private int packageID;
 
-    TestUnit(String testName, String expectedRes, String params) {
+    TestUnit(String testName, String expectedRes, String params, int packageID) {
         this.testName = testName;
         this.expectedRes = expectedRes;
         this.params = params;
         this.res = "";
+        this.packageID = packageID;
     }
 
     public String getExpectedRes() {
@@ -27,5 +29,9 @@ public class TestUnit {
 
     public String getTestName() {
         return testName;
+    }
+
+    public int getPackageID() {
+        return packageID;
     }
 }
