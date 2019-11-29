@@ -16,6 +16,9 @@ public class RouterActor extends AbstractActor {
             packageID = ID;
         }
 
+        public int getPackageID() {
+            return packageID;
+        }
     }
 
     @Override
