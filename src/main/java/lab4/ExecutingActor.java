@@ -11,6 +11,6 @@ public class ExecutingActor extends AbstractActor {
     }
 
     public static Props props() {
-        return Props.create(ExecutingActor::new)
+        return Props.create(ExecutingActor.class)
     }
 }
