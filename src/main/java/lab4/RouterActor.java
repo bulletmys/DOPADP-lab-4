@@ -14,7 +14,7 @@ public class RouterActor extends AbstractActor {
             String testname;
             String expectedRes;
             String params;
-            
+            String res;
         }
     }
 
