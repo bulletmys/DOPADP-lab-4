@@ -16,6 +16,8 @@ public class RouterActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TestsResult.class, m -> )
+                .match(TestsResult.class, m -> {
+                    testKeeperActor.tell();
+                })
     }
 }
