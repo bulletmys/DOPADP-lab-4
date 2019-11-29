@@ -22,7 +22,9 @@ public class TestKeeperActor extends AbstractActor {
                         tests.put(mail.getPackageID(), arrayList);
                     }
                 })
-                .match()
+                .match(GetTestsResult.class, mail -> {
+                    tests.get(mail.getPackageID());
+                })
                 .build();
     }
 

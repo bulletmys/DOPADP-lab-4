@@ -1,4 +1,13 @@
 package lab4;
 
-public class GetTestResult {
+class GetTestsResult {
+    private int packageID;
+
+    GetTestsResult(int ID) {
+        packageID = ID;
+    }
+
+    public int getPackageID() {
+        return packageID;
+    }
 }
