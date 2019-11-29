@@ -5,7 +5,7 @@ import akka.actor.ActorRef;
 
 public class RouterActor extends AbstractActor {
 
-    private ActorRef execActor = getContext().
+    private ActorRef execActor = getContext().actorOf()
     @Override
     public Receive createReceive() {
         return null;
