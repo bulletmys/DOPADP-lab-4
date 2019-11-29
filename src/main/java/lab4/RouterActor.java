@@ -9,14 +9,16 @@ public class RouterActor extends AbstractActor {
     private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props());
     private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(1).props(ExecutingActor.props()));
 
-    class TestsResult {
-        
+    class TestsResults {
+        class Test {
+            
+        }
     }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TestsResult.class, mail -> {
+                .match(TestsResults.class, mail -> {
                     testKeeperActor.tell(mail, sender());
                 }).build();
     }
