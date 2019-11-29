@@ -17,7 +17,7 @@ public class ExecutingActor extends AbstractActor {
                             ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
-                    return invocable.invokeFunction(mail.funcName, mail.getTests()).toString();
+                    String string = invocable.invokeFunction(mail.funcName, mail.getTests()).toString();
                 }).build();
     }
 
