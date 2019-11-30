@@ -9,7 +9,7 @@ public class Router extends AllDirectives {
         return route(
                 path("runtest", () ->
                         post( () ->
-                                
+                                entity()
                                 )
                 )
         )
