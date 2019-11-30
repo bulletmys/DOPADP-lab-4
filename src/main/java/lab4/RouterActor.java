@@ -11,8 +11,11 @@ import lab4.models.TestUnit;
 
 public class RouterActor extends AbstractActor {
 
-    private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props(), "testKeeper");
-    private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(1).props(ExecutingActor.props()));
+    public static final String KEEPER_ACTOR_NAME = "testKeeper";
+    private static final int POOL_NUM = 5;
+
+    private ActorRef testKeeperActor = getContext().actorOf(TestKeeperActor.props(), KEEPER_ACTOR_NAME);
+    private ActorRef execActorsPool = getContext().actorOf(new RoundRobinPool(POOL_NUM).props(ExecutingActor.props()));
 
 
     @Override

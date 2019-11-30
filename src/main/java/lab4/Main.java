@@ -20,12 +20,12 @@ public class Main {
     private static final String SERVER_ONLINE_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
     private static final int PORT = 8080;
     private static final String HOST = "localhost";
-    private static final String ROUTE_ACTOR = "routeActor";
+    public static final String ROUTE_ACTOR_NAME = "routeActor";
     private static final String SYSTEM_NAME = "test-system";
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create(SYSTEM_NAME);
-        ActorRef routeActor = system.actorOf(RouterActor.props(), ROUTE_ACTOR);
+        ActorRef routeActor = system.actorOf(RouterActor.props(), ROUTE_ACTOR_NAME);
 
         Http http = Http.get(system);
         ActorMaterializer actorMaterializer = ActorMaterializer.create(system);
