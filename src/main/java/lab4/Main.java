@@ -21,7 +21,7 @@ public class Main {
         Router router = new Router();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                router.createRoute(routeActor)
+                router.createRoute(routeActor).flow()
 
 
         return 0;
