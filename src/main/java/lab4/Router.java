@@ -12,8 +12,8 @@ public class Router extends AllDirectives {
                         post( () ->
                                 entity(Jackson.unmarshaller(TestMessage.class), mail -> {
                                     routerActor.tell(mail, ActorRef.noSender());
-                                        }
-                                        )
+                                    return complete()
+                                        })
                                 )
                 )
         )
