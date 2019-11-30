@@ -23,7 +23,7 @@ public class ExecutingActor extends AbstractActor {
 //                    System.out.println(Arrays.toString(test.getParams()));
                     String result = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
 
-                    System.out.println("Test %", test.getTestName());
+                    System.out.format("Test %s completed!", test.getTestName());
                     getContext().actorSelection("/user/routeActor/testKeeper").tell(
                             new TestUnit(
                                     test.getTestName(),
