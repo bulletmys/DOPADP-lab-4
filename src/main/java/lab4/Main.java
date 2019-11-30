@@ -18,9 +18,10 @@ public class Main {
 
         Http http = Http.get(system);
         ActorMaterializer actorMaterializer =  ActorMaterializer.create(system);
+        Router router = new Router();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                
+                router.
 
 
         return 0;
