@@ -1,6 +1,7 @@
 package lab4;
 
 import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 public class TestMessage {
     int packageID;
