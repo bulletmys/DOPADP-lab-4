@@ -10,7 +10,8 @@ public class Router extends AllDirectives {
         return route(
                 path("runtest", () ->
                         post( () ->
-                                entity(Jackson.unmarshaller(TestMessage.class))
+                                entity(Jackson.unmarshaller(TestMessage.class), mail ->
+                                        )
                                 )
                 )
         )
