@@ -22,7 +22,7 @@ public class Router extends AllDirectives {
                         get(() ->
                                 parameter("packageID", packageID -> {
                                     Future<Object> res = Patterns.ask(routerActor,
-                                            new GetTestsResult(Integer.parseInt(packageID)), 1000);
+                                            new GetTestsResult(Integer.parseInt(packageID)), 5000);
                                     return completeOKWithFuture(res, Jackson.marshaller());
                                 })
                         )
