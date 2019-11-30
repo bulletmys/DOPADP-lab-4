@@ -13,10 +13,11 @@ import akka.stream.ActorMaterializer;
 import akka.stream.CompletionStrategy;
 import akka.stream.javadsl.Flow;
 
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("test-system");
         ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
 
