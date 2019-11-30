@@ -16,6 +16,6 @@ public class Router extends AllDirectives {
                                 })
                         )
                 )
-        );
+        )
     }
 }
