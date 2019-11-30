@@ -11,7 +11,7 @@ import javax.script.ScriptEngineManager;
 
 public class ExecutingActor extends AbstractActor {
 
-    private static final String COMPLETED = "Test %s completed!";
+    private static final String COMPLETED = "Test %s completed!\n";
     private static final String KEEPER_PATH = "/user/" + Main.ROUTE_ACTOR_NAME + "/" + RouterActor.KEEPER_ACTOR_NAME;
     private static final String NASHORN = "nashorn";
 
