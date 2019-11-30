@@ -5,10 +5,7 @@ import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
-
-
-import java.util.concurrent.Future;
-import java.util.regex.Pattern;
+import scala.concurrent.Future;
 
 public class Router extends AllDirectives {
     Route createRoute(ActorRef routerActor) {
