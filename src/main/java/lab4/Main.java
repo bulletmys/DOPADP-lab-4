@@ -30,6 +30,9 @@ public class Main {
         final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow,
                 ConnectHttp.toHost("localhost", 8080), actorMaterializer);
 
+        System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
+        System.in.read();
+
         bind.thenCompose(ServerBinding::unbind).thenAccept(m -> system.terminate());
     }
 }
