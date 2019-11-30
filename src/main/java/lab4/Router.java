@@ -16,7 +16,9 @@ public class Router extends AllDirectives {
                                 })
                         )
                 ),
-                path()
+                path(parameter(p)
+
+                )
         )
     }
 }
