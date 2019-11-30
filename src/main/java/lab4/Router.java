@@ -9,13 +9,13 @@ public class Router extends AllDirectives {
     Route createRoute(ActorRef routerActor) {
         return route(
                 path("runtest", () ->
-                        post( () ->
+                        post(() ->
                                 entity(Jackson.unmarshaller(TestMessage.class), mail -> {
                                     routerActor.tell(mail, ActorRef.noSender());
-                                    return complete()
-                                        })
-                                )
+                                    return complete("Running Tests");
+                                })
+                        )
                 )
-        )
+        );
     }
 }
