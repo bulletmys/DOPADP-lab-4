@@ -1,4 +1,8 @@
 package lab4;
 
-public class Router {
+import akka.http.javadsl.server.AllDirectives;
+
+public class Router extends AllDirectives {
+
+    
 }
