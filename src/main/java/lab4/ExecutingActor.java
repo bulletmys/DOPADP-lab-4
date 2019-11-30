@@ -6,6 +6,7 @@ import akka.actor.Props;
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import java.util.Arrays;
 
 public class ExecutingActor extends AbstractActor {
 
@@ -18,14 +19,17 @@ public class ExecutingActor extends AbstractActor {
                             ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
+
+//                    System.out.println(Arrays.toString(test.getParams()));
                     String result = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
 
+                    System.out.println("Test %", test.getTestName());
                     getContext().actorSelection("/user/routeActor/testKeeper").tell(
                             new TestUnit(
                                     test.getTestName(),
                                     test.getExpectedRes(),
                                     test.getParams(),
-                                    test.getPackageID(),
+                                    mail.getPackageID(),
                                     result),
                             self());
                 }).build();

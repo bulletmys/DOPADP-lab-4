@@ -4,11 +4,12 @@ import akka.actor.AbstractActor;
 import akka.actor.Props;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TestKeeperActor extends AbstractActor {
 
-    HashMap<Integer, ArrayList<TestUnit>> tests;
+    HashMap<Integer, ArrayList<TestUnit>> tests = new HashMap<>();
 
     @Override
     public Receive createReceive() {
@@ -19,6 +20,7 @@ public class TestKeeperActor extends AbstractActor {
                     } else {
                         ArrayList<TestUnit> arrayList = new ArrayList<>();
                         arrayList.add(mail);
+//                        System.out.println(mail.getPackageID());
                         tests.put(mail.getPackageID(), arrayList);
                     }
                 })
