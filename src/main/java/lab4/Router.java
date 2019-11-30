@@ -18,13 +18,15 @@ public class Router extends AllDirectives {
                                 })
                         )
                 ),
-                path("packageID", () ->
-                                get(() ->
-                                        parameter("packageID", packageID -> {
-                                            Future<Object> res = Patterns.ask(routerActor, new GetTestsResult(Integer.parseInt(packageID)), 1000);
-                                            return completeOKWithFuture(res, Jackson.marshaller());
-                                        })
+                path("get", () ->
+                        get(() ->
+                                parameter("packageID", packageID -> {
+                                    Future<Object> res = Patterns.ask(routerActor,
+                                            new GetTestsResult(Integer.parseInt(packageID)), 1000);
+                                    return completeOKWithFuture(res, Jackson.marshaller());
+                                })
                         )
                 )
+        );
     }
 }
