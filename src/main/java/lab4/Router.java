@@ -11,7 +11,7 @@ public class Router extends AllDirectives {
                 path("runtest", () ->
                         post( () ->
                                 entity(Jackson.unmarshaller(TestMessage.class), mail -> {
-                                    
+                                    routerActor.tell();
                                         }
                                         )
                                 )
