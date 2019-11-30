@@ -11,7 +11,7 @@ public class TestMessage {
     ArrayList<TestUnit> tests;
 
     TestMessage(int packageId, String script, String funcName, ArrayList<TestUnit> tests) {
-        this.packageID = packageID;
+        this.packageID = packageId;
         this.script = script;
         this.funcName = funcName;
         this.tests = tests;
