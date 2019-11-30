@@ -27,7 +27,9 @@ public class Main {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 router.createRoute(routeActor).flow(system, actorMaterializer);
 
-        final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 8080))
+        final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow,
+                ConnectHttp.toHost("localhost", 8080), actorMaterializer);
+        
 
 
         return 0;
