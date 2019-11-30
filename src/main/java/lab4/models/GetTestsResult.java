@@ -1,9 +1,9 @@
-package lab4;
+package lab4.models;
 
-class GetTestsResult {
+public class GetTestsResult {
     private int packageID;
 
-    GetTestsResult(int ID) {
+    public GetTestsResult(int ID) {
         packageID = ID;
     }
 

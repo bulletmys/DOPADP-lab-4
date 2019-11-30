@@ -1,4 +1,4 @@
-package lab4;
+package lab4.models;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -21,7 +21,7 @@ public class TestUnit {
         this.res = "";
     }
 
-    TestUnit(String testName, String expectedRes, Object[] params, int packageID, String res) {
+    public TestUnit(String testName, String expectedRes, Object[] params, int packageID, String res) {
         this.testName = testName;
         this.expectedRes = expectedRes;
         this.params = params;

@@ -5,6 +5,8 @@ import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
+import lab4.models.GetTestsResult;
+import lab4.models.TestMessage;
 import scala.concurrent.Future;
 
 public class Router extends AllDirectives {

@@ -2,12 +2,15 @@ package lab4;
 
 import akka.actor.AbstractActor;
 import akka.actor.Props;
+import lab4.models.GetTestsResult;
+import lab4.models.TestUnit;
+import lab4.models.TestsRes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class TestKeeperActor extends AbstractActor {
+    private static final String ERROR = "Cant find current key";
 
     private HashMap<Integer, ArrayList<TestUnit>> tests = new HashMap<>();
 
@@ -28,7 +31,7 @@ public class TestKeeperActor extends AbstractActor {
                         TestsRes testsRes = new TestsRes(mail.getPackageID(), tests.get(mail.getPackageID()));
                         sender().tell(testsRes, self());
                     } else {
-                        sender().tell("Error", self());
+                        sender().tell(ERROR, self());
                     }
                 })
                 .build();

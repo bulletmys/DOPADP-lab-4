@@ -17,21 +17,27 @@ import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class Main {
+    private static final String SERVER_ONLINE_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final int PORT = 8080;
+    private static final String HOST = "localhost";
+    private static final String ROUTE_ACTOR = "routeActor";
+    private static final String SYSTEM_NAME = "test-system";
+
     public static void main(String[] args) throws IOException {
-        ActorSystem system = ActorSystem.create("test-system");
-        ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
+        ActorSystem system = ActorSystem.create(SYSTEM_NAME);
+        ActorRef routeActor = system.actorOf(RouterActor.props(), ROUTE_ACTOR);
 
         Http http = Http.get(system);
-        ActorMaterializer actorMaterializer =  ActorMaterializer.create(system);
+        ActorMaterializer actorMaterializer = ActorMaterializer.create(system);
         Router router = new Router();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 router.createRoute(routeActor).flow(system, actorMaterializer);
 
         final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow,
-                ConnectHttp.toHost("localhost", 8080), actorMaterializer);
+                ConnectHttp.toHost(HOST, PORT), actorMaterializer);
 
-        System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
+        System.out.println(SERVER_ONLINE_MSG);
         System.in.read();
 
         bind.thenCompose(ServerBinding::unbind).thenAccept(m -> system.terminate());

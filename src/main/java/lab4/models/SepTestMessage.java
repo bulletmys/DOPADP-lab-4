@@ -1,14 +1,12 @@
-package lab4;
-
-import java.util.ArrayList;
+package lab4.models;
 
 public class SepTestMessage {
-    int packageID;
-    String script;
-    String funcName;
-    TestUnit test;
+    private int packageID;
+    private String script;
+    private String funcName;
+    private TestUnit test;
 
-    SepTestMessage(int packageID, String script, String funcName, TestUnit test) {
+    public SepTestMessage(int packageID, String script, String funcName, TestUnit test) {
         this.packageID = packageID;
         this.script = script;
         this.funcName = funcName;

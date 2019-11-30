@@ -2,13 +2,18 @@ package lab4;
 
 import akka.actor.AbstractActor;
 import akka.actor.Props;
+import lab4.models.SepTestMessage;
+import lab4.models.TestUnit;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import java.util.Arrays;
 
 public class ExecutingActor extends AbstractActor {
+
+    private static final String COMPLETED = "Test %s completed!";
+    private static final String KEEPER_PATH = "/user/routeActor/testKeeper";
+    private static final String NASHORN = "nashorn";
 
     @Override
     public Receive createReceive() {
@@ -16,15 +21,13 @@ public class ExecutingActor extends AbstractActor {
                 .match(SepTestMessage.class, mail -> {
                     TestUnit test = mail.getTest();
                     ScriptEngine engine = new
-                            ScriptEngineManager().getEngineByName("nashorn");
+                            ScriptEngineManager().getEngineByName(NASHORN);
                     engine.eval(mail.getScript());
                     Invocable invocable = (Invocable) engine;
+                    String result = invocable.invokeFunction(mail.getFuncName(), test.getParams()).toString();
 
-//                    System.out.println(Arrays.toString(test.getParams()));
-                    String result = invocable.invokeFunction(mail.funcName, test.getParams()).toString();
-
-                    System.out.format("Test %s completed!", test.getTestName());
-                    getContext().actorSelection("/user/routeActor/testKeeper").tell(
+                    System.out.format(COMPLETED, test.getTestName());
+                    getContext().actorSelection(KEEPER_PATH).tell(
                             new TestUnit(
                                     test.getTestName(),
                                     test.getExpectedRes(),

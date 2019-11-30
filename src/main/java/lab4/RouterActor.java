@@ -4,6 +4,10 @@ import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.routing.RoundRobinPool;
+import lab4.models.GetTestsResult;
+import lab4.models.SepTestMessage;
+import lab4.models.TestMessage;
+import lab4.models.TestUnit;
 
 public class RouterActor extends AbstractActor {
 
@@ -20,7 +24,7 @@ public class RouterActor extends AbstractActor {
                 .match(TestMessage.class, mail -> {
                     for (TestUnit test : mail.getTests()) {
                         execActorsPool.tell(new SepTestMessage(
-                                mail.packageID, mail.script, mail.funcName, test), self());
+                                mail.getPackageID(), mail.getScript(), mail.getFuncName(), test), self());
                     }
                 })
                 .build();
