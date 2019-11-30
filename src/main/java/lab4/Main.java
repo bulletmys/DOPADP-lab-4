@@ -11,6 +11,8 @@ import akka.stream.ActorMaterializer;
 import akka.stream.CompletionStrategy;
 import akka.stream.javadsl.Flow;
 
+import java.util.concurrent.CompletionStage;
+
 public class Main {
     int main(String[] args) {
         ActorSystem system = ActorSystem.create("test-system");
@@ -23,7 +25,7 @@ public class Main {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 router.createRoute(routeActor).flow(system, actorMaterializer);
 
-        final 
+        final CompletionStage
 
 
         return 0;
