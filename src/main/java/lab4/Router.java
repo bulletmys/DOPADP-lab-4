@@ -18,7 +18,7 @@ public class Router extends AllDirectives {
                                 })
                         )
                 ),
-                path(parameter("packageID", () ->
+                path(, () ->
                                 get(() ->
                                         packageID -> {
                                             Future<Object> res = Patterns.ask(routerActor, new GetTestsResult(Integer.parseInt(packageID)), 1000);
