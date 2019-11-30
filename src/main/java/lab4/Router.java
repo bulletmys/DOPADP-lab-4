@@ -16,7 +16,7 @@ public class Router extends AllDirectives {
                                 })
                         )
                 ),
-                path(parameter("packageID", )
+                path(parameter("packageID", packageID -> )
 
                 )
         )
