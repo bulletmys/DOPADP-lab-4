@@ -15,7 +15,8 @@ public class Router extends AllDirectives {
                                     return complete("Running Tests");
                                 })
                         )
-                )
+                ),
+                path()
         )
     }
 }
