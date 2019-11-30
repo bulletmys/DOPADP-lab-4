@@ -14,7 +14,7 @@ public class Main {
         Http http = Http.get(system);
         ActorMaterializer actorMaterializer =  ActorMaterializer.create(system);
 
-        final Flow
+        final Flow<>
 
 
         return 0;
