@@ -4,6 +4,7 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 
 import java.util.concurrent.Future;
 import java.util.regex.Pattern;
@@ -20,7 +21,7 @@ public class Router extends AllDirectives {
                         )
                 ),
                 path(parameter("packageID", packageID -> {
-                    Future<Object> res = Pattern.ask
+                    Future<Object> res = Patterns.ask()
                         })
 
                 )
