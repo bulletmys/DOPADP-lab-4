@@ -16,7 +16,7 @@ import akka.stream.javadsl.Flow;
 import java.util.concurrent.CompletionStage;
 
 public class Main {
-    int main(String[] args) {
+    public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("test-system");
         ActorRef routeActor = system.actorOf(RouterActor.props(), "routeActor");
 
@@ -31,7 +31,5 @@ public class Main {
                 ConnectHttp.toHost("localhost", 8080), actorMaterializer);
 
         bind.thenCompose(ServerBinding::unbind).thenAccept(m -> system.terminate());
-
-        return 0;
     }
 }
