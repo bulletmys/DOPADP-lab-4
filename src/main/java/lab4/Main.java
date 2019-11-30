@@ -29,7 +29,8 @@ public class Main {
 
         final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow,
                 ConnectHttp.toHost("localhost", 8080), actorMaterializer);
-        
+
+        System.in.read();
 
 
         return 0;
