@@ -26,7 +26,7 @@ public class Main {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 router.createRoute(routeActor).flow(system, actorMaterializer);
 
-        final CompletionStage<ServerBinding> bind = http.
+        final CompletionStage<ServerBinding> bind = http.bindAndHandle()
 
 
         return 0;
