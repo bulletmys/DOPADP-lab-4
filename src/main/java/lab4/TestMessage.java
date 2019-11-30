@@ -3,6 +3,7 @@ package lab4;
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+@JsonAutoDetect
 public class TestMessage {
     int packageID;
     String script;
