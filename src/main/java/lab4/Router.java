@@ -5,6 +5,8 @@ import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 
+import java.util.concurrent.Future;
+
 public class Router extends AllDirectives {
     Route createRoute(ActorRef routerActor) {
         return route(
@@ -17,7 +19,7 @@ public class Router extends AllDirectives {
                         )
                 ),
                 path(parameter("packageID", packageID -> {
-                    Future<>
+                    Future<Object> 
                         })
 
                 )
