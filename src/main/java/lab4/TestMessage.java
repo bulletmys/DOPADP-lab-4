@@ -10,9 +10,9 @@ public class TestMessage {
     String funcName;
     ArrayList<TestUnit> tests;
 
-    TestMessage(int packageId, String script, String funcName, ArrayList<TestUnit> tests) {
+    TestMessage(int packageId, String jsScript, String funcName, ArrayList<TestUnit> tests) {
         this.packageID = packageId;
-        this.script = script;
+        this.script = jsScript;
         this.funcName = funcName;
         this.tests = tests;
     }
