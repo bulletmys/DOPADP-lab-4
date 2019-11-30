@@ -25,7 +25,7 @@ public class Main {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 router.createRoute(routeActor).flow(system, actorMaterializer);
 
-        final CompletionStage
+        final CompletionStage<>
 
 
         return 0;
