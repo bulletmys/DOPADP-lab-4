@@ -7,7 +7,7 @@ import akka.http.javadsl.server.Route;
 public class Router extends AllDirectives {
     Route createRoute(ActorRef routerActor) {
         return route(
-                
+                path()
         )
     }
 }
