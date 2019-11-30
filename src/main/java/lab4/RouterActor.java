@@ -22,7 +22,6 @@ public class RouterActor extends AbstractActor {
                         execActorsPool.tell(new SepTestMessage(
                                 mail.packageID, mail.script, mail.funcName, test), self());
                     }
-                    System.out.format("End of testing %d package", mail.packageID);
                 })
                 .build();
     }

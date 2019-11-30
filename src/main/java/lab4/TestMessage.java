@@ -9,10 +9,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonAutoDetect
 public class TestMessage {
-    int packageID;
-    String script;
-    String funcName;
-    ArrayList<TestUnit> tests;
+    private int packageID;
+    private String script;
+    private String funcName;
+    private ArrayList<TestUnit> tests;
 
     TestMessage(@JsonProperty(value = "packageId") String packageId, @JsonProperty(value = "jsScript") String jsScript,
                 @JsonProperty(value = "functionName") String functionName, @JsonProperty(value = "tests") TestUnit[] tests) {
@@ -21,13 +21,6 @@ public class TestMessage {
         this.funcName = functionName;
         this.tests = new ArrayList<>(Arrays.asList(tests));
     }
-
-//    TestMessage(int packageId, String jsScript, String functionName, ArrayList<TestUnit> tests) {
-//        this.packageID = packageId;
-//        this.script = jsScript;
-//        this.funcName = functionName;
-//        this.tests = tests;
-//    }
 
     public ArrayList<TestUnit> getTests() {
         return tests;
