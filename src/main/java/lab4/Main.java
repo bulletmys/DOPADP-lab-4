@@ -30,7 +30,7 @@ public class Main {
         final CompletionStage<ServerBinding> bind = http.bindAndHandle(routeFlow,
                 ConnectHttp.toHost("localhost", 8080), actorMaterializer);
 
-        bind.thenCompose(ServerBinding::unbind).thenAccept()
+        bind.thenCompose(ServerBinding::unbind).thenAccept(m -> system.terminate());
 
         return 0;
     }
